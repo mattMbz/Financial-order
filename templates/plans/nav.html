@@ -1,0 +1,36 @@
+{% load static %}
+
+<nav class="nav">
+  <div class="d-flex justify-between">
+    <ul class="d-flex">
+      <li class="incomes-expenses mx-25">
+        <a class="" href="#">Income & expenses</a>
+      </li>
+      <li class="mx-25">
+        <a class="" href="#">Debts</a>
+      </li>
+      <li class="mx-25">
+        <a class="nav-link" href="#">Actives</a>
+      </li>
+      <li class="mx-25">
+        <a class="" href="#">Saving</a>
+      </li>
+      <li class="mx-25">
+        <a class="" href="#">Annual budget</a>
+      </li>
+      <li class="mx-25">
+        <a class="" href="#">Control panel</a>
+      </li>
+    </ul>
+    
+    <a class="" href="{% url 'logout' %}">
+      <div class="d-flex align-center">
+        {% comment %} <span class="x-button">❌</span> {% endcomment %}
+        <span class="exit">Exit</span>
+        <img class="mr-15 ml-4" src="{% static 'img/logout_icon.ico' %}" alt="logout" width="20px">
+      </div>
+    </a>
+  
+  </div>
+</nav>
+<div class="nav-separator"></div>

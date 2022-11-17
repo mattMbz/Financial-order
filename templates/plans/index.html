@@ -1,0 +1,106 @@
+{% extends 'plans/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="container-full vh-100">
+
+    {% include 'plans/nav.html' %}
+
+    <section id="sidemenu" class="menu-collapsed base-font brand-color">
+
+        {# HEADER #}
+        <div id="header">
+            <div id="title"><span>Menú</span></div>
+            <div id="menu-btn">
+                <div class="btn-hamburger"></div>
+                <div class="btn-hamburger"></div>
+                <div class="btn-hamburger"></div>
+            </div>
+        </div>
+
+        {# Profile #}
+        <div id="profile">
+            <div id="photo"><img src="{% static "img/photo.png" %}" alt=""></div>
+            <div id="name"><span>{{user.first_name}}</span></div>
+        </div>
+
+        {# Items #}
+        <div id="menu-items">
+            <div class="item">
+                <a href="#">
+                    <div class="icon" title="Create new table">
+                        <img src="{% static "img/inserttable.png" %}" alt="">
+                    </div>
+                    <div class="title">
+                        <span>Create new table</span>
+                    </div>
+                </a>
+            
+                <form id="form" class="createNewTableForm">
+                    <label>Table name:</label>
+                    <input type="text" id="table-name" class="input">
+                    <div class="d-flex mb-20">
+                        <div>
+                            <label>Columns:</label>
+                            <input type="number" id="columns" min="1" max="5" class="input">
+                        </div>
+                        <div>
+                            <label>Rows:</label>
+                            <input type="number" id="rows" min="1" max="5" class="input">
+                        </div>
+                    </div>
+                    <input type="submit" class="button" value="Create table now >>">
+                </form>
+              
+            </div>
+ 
+            <div class="item separator"></div>
+          
+            <div class="item">
+                <a href="#">
+                    <div class="icon" title="Add a new annotation on the right side panel.">
+                        <img src="{% static "img/pencil.png" %}" alt="">
+                    </div>
+                    <div class="title"><span>Notes</span></div>
+                </a>
+                <form id="form" class="createNewNoteForm">
+                    <textarea
+                    class="mb-20"
+                    id="annotationTextarea" 
+                    name="textarea" 
+                    rows="6" cols="24" 
+                    placeholder="Write something here"></textarea>
+                    <input type="submit" class="button" value="Add annotation >>">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="base-font mx-25 mt-160">
+        <div class="welcome">
+            <h3><span>&#128512</span> Hello {{user.username}} !</h3>
+            <span>You have not any financial plan created yet. You can start creating a custom table.</span>
+        </div>
+    </section>
+    <div class='console hidde-console'>
+        <div class="editor">
+            <header class="editor-header border-black">
+                <div class="d-flex align-center">
+                    <span class="mx-25">Table Functions</span>
+                    <img src="{% static 'img/function.png' %}">
+                </div>
+            </header>
+            <textarea class="textarea" autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false" rows="10"></textarea>
+        </div>
+    </div>
+</div>
+{% else %}
+    Message: You are not registered! ... we are redirecting you to home
+    <a id="redirect" href="{% url 'index' %}"></a>
+    <script>
+        document.getElementById('redirect').click();
+    </script>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title%}Financial order{% endblock title %}
+
+{% block content %}
+<div class="container vh-100 d-flex justify-center">
+    <div class="relative-mt">
+        <div class="text-center">
+            <h1 class="brand display-1 mb-20">Financial order</h1>
+            <code class="code">version 0.1</code>
+            <span class='mt-40 base-font d-block display-3'>Welcome</span>
+            <div class='base-font d-block display-4 mt-20'>Create your personal financial plans!</div>
+            <div class="base-font">
+                <span class='d-block mt-20'><a href="{% url 'signup' %}">Sign up</a> to begin Now!</span>
+                <span class='d-block mt-20'><a href="{% url 'signin' %}">Sign in</a> if you're already registered!</span>
+                <div class='d-block mt-20'>Get <a href="{% url 'signin' %}">more infomation</a> about this project.</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

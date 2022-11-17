@@ -1,0 +1,48 @@
+{% extends 'base.html' %}  
+  
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    <a id="refToPlans" href="{% url 'plans' %}"></a>
+    <script>
+        document.getElementById('refToPlans').click()
+    </script>
+
+{% else %}
+
+    <div class="container-full vh-100 d-flex justify-center align-center">
+        <div class="">
+            <div class="h-20">
+                {% if messages %}
+                    {% for message in messages %}  
+                        <div class="alert success max-w-500">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';"> x </span>
+                            {{ message }}  &#128516;
+                        </div>   
+                    {% endfor %}  
+                {% endif %}
+                {% comment %} <div class="h-20"> {% endcomment %}
+                    {% if error %}
+                    <div class="alert danger">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';"> x </span> 
+                        {{error}} <strong>&#9888</strong>
+                    </div>
+                    {% endif %}
+            </div>
+            {% comment %} </div> {% endcomment %}
+            <form method="POST" class="card login mt-40">
+                <div class="text-center">
+                    <span class="brand display-4 d-block mb-25">Financial order</span>
+                    <span class="text-size-30">Sign in</span>
+                </div>
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="button">Login Now</button>
+            </form>
+        </div>
+    </div>
+
+{% endif %}
+
+{% endblock content %}
