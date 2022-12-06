@@ -22,15 +22,13 @@
                         </div>   
                     {% endfor %}  
                 {% endif %}
-                {% comment %} <div class="h-20"> {% endcomment %}
-                    {% if error %}
+                {% if error %}
                     <div class="alert danger">
                         <span class="closebtn" onclick="this.parentElement.style.display='none';"> x </span> 
                         {{error}} <strong>&#9888</strong>
                     </div>
-                    {% endif %}
+                {% endif %}
             </div>
-            {% comment %} </div> {% endcomment %}
             <form method="POST" class="card login mt-40">
                 <div class="text-center">
                     <span class="brand display-4 d-block mb-25">Financial order</span>

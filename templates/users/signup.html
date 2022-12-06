@@ -4,15 +4,6 @@
 
     <div class="container-full vh-100">
         <div class="d-flex justify-center py-20">
-
-            {% comment %} {% if messages %}  
-            <div class="alert alert-success" role="alert">
-                {% for message in messages %}  
-                    {{ message }}  &#128516;
-                {% endfor %}  
-            </div>   
-            {% endif %} {% endcomment %}
-
             <form action="/signup/" method="POST" class="card mt-25">
                 <div class="text-center mb-20">
                     <span class="d-block brand letter-space-0 display-4">Financial order</span>
@@ -20,7 +11,6 @@
                 </div>
                 <div class="">
                     {% csrf_token %}  
-                    {% comment %} {{ form.as_p }}   {% endcomment %}
                     {% for field in form %}
                         <div {% if field.errors %} class="border-red" {% endif %}>
                             {{field}}

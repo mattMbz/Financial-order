@@ -38,22 +38,22 @@
                     </div>
                 </a>
             
-                <form id="form" class="createNewTableForm">
-                    <label>Table name:</label>
-                    <input type="text" id="table-name" class="input">
-                    <div class="d-flex mb-20">
-                        <div>
-                            <label>Columns:</label>
-                            <input type="number" id="columns" min="1" max="5" class="input">
-                        </div>
-                        <div>
-                            <label>Rows:</label>
-                            <input type="number" id="rows" min="1" max="5" class="input">
-                        </div>
+              <form action="POST" id="form" class="createNewTableForm">
+                {% csrf_token %}
+                {{createNewTableForm.name.label}}
+                {{createNewTableForm.name}}
+                <div class="d-flex mb-20">
+                    <div>
+                        {{createNewTableForm.columns.label}}
+                        {{createNewTableForm.columns}}
                     </div>
-                    <input type="submit" class="button" value="Create table now >>">
-                </form>
-              
+                    <div>
+                        {{createNewTableForm.rows.label}}
+                        {{createNewTableForm.rows}}
+                    </div>
+                </div>
+                <input type="submit" class="button" value="Create table now >>">
+              </form>
             </div>
  
             <div class="item separator"></div>
@@ -66,12 +66,8 @@
                     <div class="title"><span>Notes</span></div>
                 </a>
                 <form id="form" class="createNewNoteForm">
-                    <textarea
-                    class="mb-20"
-                    id="annotationTextarea" 
-                    name="textarea" 
-                    rows="6" cols="24" 
-                    placeholder="Write something here"></textarea>
+                    {% csrf_token %}
+                    {{createAnnotationsForm}}
                     <input type="submit" class="button" value="Add annotation >>">
                 </form>
             </div>
@@ -79,10 +75,41 @@
     </section>
 
     <section class="base-font mx-25 mt-160">
-        <div class="welcome">
+        <div class="messages">
             <h3><span>&#128512</span> Hello {{user.username}} !</h3>
             <span>You have not any financial plan created yet. You can start creating a custom table.</span>
         </div>
+    </section>
+
+    <section class="table-section mx-25 d-flex justify-center">
+        <div class="tables">
+            {% include 'plans/table_1.html' %}
+            <hr>
+            {% comment %} {% include 'plans/table_2.html' %} {% endcomment %}
+            <hr>
+        </div>
+        <section class="observations ml-25 border-black">
+            <div class="sticky-notes w-318">
+
+                {% comment %} <div class="alert success max-w-500">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"> x </span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores consectetur qui culpa, eveniet quod explicabo porro aliquam sint eum nemo laudantium odio at, perspiciatis ipsum praesentium eligendi? Modi, vero est!  &#128516;
+                </div>
+                <div class="alert info max-w-500">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"> x </span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores consectetur qui culpa, eveniet quod explicabo porro aliquam sint eum nemo laudantium odio at, perspiciatis ipsum praesentium eligendi? Modi, vero est!  &#128516;
+                </div> 
+                <div class="alert danger max-w-500">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"> x </span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores consectetur qui culpa, eveniet quod explicabo porro aliquam sint eum nemo laudantium odio at, perspiciatis ipsum praesentium eligendi? Modi, vero est!  &#128516;
+                </div> 
+                <div class="alert warning max-w-500">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"> x </span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores consectetur qui culpa, eveniet quod explicabo porro aliquam sint eum nemo laudantium odio at, perspiciatis ipsum praesentium eligendi? Modi, vero est!  &#128516;
+                </div>  {% endcomment %}
+
+            </div>
+        </section>
     </section>
     <div class='console hidde-console'>
         <div class="editor">

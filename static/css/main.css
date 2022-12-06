@@ -58,6 +58,14 @@
 .border-red{border: solid 1px red;}
 .border-black{border: solid 1px black;}
 .border-gray{border: solid 1px gray;}
+.border-orange{border: solid 1px orange;}
+.border-table{border: solid 1px #e4ddf5;}
+
+.shadow-table{
+	box-shadow: 1px 6px 18px -9px rgba(0,0,0,1);
+	-webkit-box-shadow: 1px 6px 18px -9px rgba(0,0,0,1);
+	-moz-box-shadow: 1px 6px 18px -9px rgba(0,0,0,1);
+}
 
 .mt-10{margin-top: 10px;}
 .mt-20{margin-top: 20px;}
@@ -96,7 +104,10 @@
 .mx-25{margin: 0 25px;}
 
 .mr-15{margin-right: 16px;}
+.mr-25{margin-right: 25px;}
+
 .ml-4{margin-left: 4px;}
+.ml-25{margin-left: 25px;}
 
 .relative-mt{margin-top: calc(10vw + 1px );}
 
@@ -116,11 +127,15 @@
 .wrap{overflow-wrap: anywhere;}
 
 /*** width */
-.max{max-width: max-content;}
-.w-100{width: 100%;}
-.w-90{width: 90%;}
 .w-50{width: 50%;}
+.w-80{width: 80%;}
+.w-90{width: 90%;}
+.w-100{width: 100%;}
+
 .w-500{width: 500px;}
+.w-318{width: 318px;}
+
+.max{max-width: max-content;}
 .max-w-500{max-width: 500px;}
 
 /*** Height */
@@ -301,3 +316,85 @@ form .button {
 .hidde-console{
 	top: calc(100vh - 35px);
 }
+
+/** Table */
+#customers {
+	font-family: var(--font-content);
+	/* font-family: Arial, Helvetica, sans-serif; */
+	border-collapse: collapse;
+	width: 100%;
+}
+#customers td, #customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+  }
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:hover {background-color: #c8f8a7;}
+#customers th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: var(--color-brand);
+	color: white;
+}
+.table-name{
+	background-color: #0b97f5;
+	color: white;
+}
+
+.save-data, .edit-table, .delete-table, .sort-table{
+	cursor: pointer;
+}
+.header-functions>span>img:hover{
+	background-color: #eaf0e6;
+}
+/* .edit-table:hover{background-color: #ecf3eb;} */
+.input-table {
+	box-sizing: border-box;
+	border: none;
+	height: 32px;
+	background-color: inherit;
+}
+.input-table:focus {
+	outline: none;
+}
+.input-table.header{
+	background-color: inherit;
+	color: white;
+}
+.input-table.header[disabled] {
+	color: white;
+}
+.input-table[disabled] {
+	color: black;
+}
+
+
+/** Sticky */
+.sticky-yellow{
+	border: orangered solid 1px;
+	background-color: yellow;
+}
+
+/** Pagination */
+.footer-tools{margin-top: 5px;}
+.pagination {
+	display: inline-block;
+	text-align: center;
+}
+  
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+}
+  
+.pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+  
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
